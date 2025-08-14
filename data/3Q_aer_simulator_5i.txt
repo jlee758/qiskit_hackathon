@@ -1,0 +1,88 @@
+Target: 3-qubit GHZ state = (|000> + |111>)/sqrt(2)
+
+==================================================
+Starting Quantum State Characterization Pipeline
+
+==================================================
+
+--- Skipping Measurement Error Mitigation for this ideal simulation demo ---
+
+--- Starting Direct Fidelity Estimation (DFE) with Debugging ---
+[DFE DEBUG] Dimension d = 2^3 = 8
+[DFE DEBUG] Sum of s_k^2 = 8.0000
+[DFE DEBUG] Estimator prefactor (Sum(s_k^2) / d) = 1.0000
+[DFE DEBUG] Sampled 500 Pauli operators.
+--- Starting Classical Shadows ---
+Generated 10000 circuits for shadow tomography (1 shot each).
+
+[DFE DEBUG] Analyzing first 5 samples...
+  Sample 1:
+    Pauli = XYY, s_j = -1.0000
+    Measured <P_j> = -0.9460
+    Term (<P_j>/s_j) = 0.9460
+  Sample 2:
+    Pauli = ZIZ, s_j = 1.0000
+    Measured <P_j> = 1.0120
+    Term (<P_j>/s_j) = 0.9880
+  Sample 3:
+    Pauli = III, s_j = 1.0000
+    Measured <P_j> = 1.0000
+    Term (<P_j>/s_j) = 1.0000
+  Sample 4:
+    Pauli = YXY, s_j = -1.0000
+    Measured <P_j> = -1.0347
+    Term (<P_j>/s_j) = 0.9653
+  Sample 5:
+    Pauli = ZZI, s_j = 1.0000
+    Measured <P_j> = 0.9734
+    Term (<P_j>/s_j) = 0.9734
+
+[DFE DEBUG] Mean of terms (<P_j>/s_j) = 0.9823
+[DFE DEBUG] Final Fidelity (Prefactor * Mean) = 0.9823
+DFE complete.
+Aggregating snapshots using Median-of-Means...
+Classical Shadows processing complete.
+
+DFE Result: Fidelity = 0.9823 ¡¾ 0.0007
+
+
+Classical Shadows Result: Fidelity = 0.9678
+Reconstructed Statevector (top eigenvector): [-0.69+0.j   -0.04-0.02j  0.  -0.06j -0.02-0.04j -0.  +0.03j -0.02-0.03j
+ -0.02+0.15j -0.7 +0.03j]
+95% Confidence Interval (Bootstrap): [0.8773, 0.9805]
+
+--- Starting Full State Tomography (MLE) ---
+Running 27 tomography circuits on aer_simulator...
+Skipping measurement error mitigation for tomography.
+Tomography run complete. Starting MLE fit...
+MLE Tomography complete.
+
+MLE Tomography Result: Fidelity = 0.8853
+Reconstructed Density Matrix:
+[[ 0.46+0.j    0.01+0.j   -0.  -0.j   -0.  +0.j   -0.01+0.j    0.01+0.j
+   0.01-0.01j  0.42-0.j  ]
+ [ 0.01-0.j    0.02+0.j   -0.  +0.j   -0.  +0.j    0.  +0.j    0.  -0.j
+   0.  -0.j   -0.  -0.j  ]
+ [-0.  +0.j   -0.  -0.j    0.01-0.j   -0.  +0.j   -0.  +0.01j  0.  +0.j
+   0.  +0.j   -0.  +0.j  ]
+ [-0.  -0.j   -0.  -0.j   -0.  -0.j    0.01+0.j    0.  -0.j    0.  -0.j
+  -0.  -0.j   -0.  -0.j  ]
+ [-0.01-0.j    0.  -0.j   -0.  -0.01j  0.  +0.j    0.01+0.j   -0.  -0.j
+  -0.  +0.j    0.  -0.j  ]
+ [ 0.01-0.j    0.  +0.j    0.  -0.j    0.  +0.j   -0.  +0.j    0.01+0.j
+  -0.01+0.j    0.  -0.01j]
+ [ 0.01+0.01j  0.  +0.j    0.  -0.j   -0.  +0.j   -0.  -0.j   -0.01-0.j
+   0.02+0.j    0.  +0.j  ]
+ [ 0.42+0.j   -0.  +0.j   -0.  -0.j   -0.  +0.j    0.  +0.j    0.  +0.01j
+   0.  -0.j    0.46-0.j  ]]
+
+
+==================================================
+            Pipeline Summary
+==================================================
+Target State: 3-qubit GHZ State
+Backend: aer_simulator
+--------------------------------------------------
+Direct Fidelity Estimation (DFE):   F = 0.9823 ¡¾ 0.0007
+Classical Shadows + Rank-1 Proj:  F = 0.9678 (95% CI width ~= 0.1031)
+Full Tomography (MLE):            F = 0.8853

@@ -1,0 +1,73 @@
+Target: 6-qubit GHZ state = (|000> + |111>)/sqrt(2)
+
+==================================================
+Starting Quantum State Characterization Pipeline
+
+==================================================
+
+--- Skipping Measurement Error Mitigation for this ideal simulation demo ---
+
+--- Starting Direct Fidelity Estimation (DFE) with Debugging ---
+[DFE DEBUG] Dimension d = 2^6 = 64
+[DFE DEBUG] Sum of s_k^2 = 64.0000
+[DFE DEBUG] Estimator prefactor (Sum(s_k^2) / d) = 1.0000
+[DFE DEBUG] Sampled 500 Pauli operators.
+--- Starting Classical Shadows ---
+Generated 10000 circuits for shadow tomography (1 shot each).
+
+[DFE DEBUG] Analyzing first 5 samples...
+  Sample 1:
+    Pauli = XXXYYX, s_j = -1.0000
+    Measured <P_j> = -0.7537
+    Term (<P_j>/s_j) = 0.7537
+  Sample 2:
+    Pauli = IIZIZI, s_j = 1.0000
+    Measured <P_j> = 0.5161
+    Term (<P_j>/s_j) = 0.5161
+  Sample 3:
+    Pauli = YXYYYX, s_j = 1.0000
+    Measured <P_j> = -0.1260
+    Term (<P_j>/s_j) = -0.1260
+  Sample 4:
+    Pauli = YYXXXX, s_j = -1.0000
+    Measured <P_j> = -0.7428
+    Term (<P_j>/s_j) = 0.7428
+  Sample 5:
+    Pauli = IZZZIZ, s_j = 1.0000
+    Measured <P_j> = 0.7345
+    Term (<P_j>/s_j) = 0.7345
+
+[DFE DEBUG] Mean of terms (<P_j>/s_j) = 0.4334
+[DFE DEBUG] Final Fidelity (Prefactor * Mean) = 0.4334
+DFE complete.
+Aggregating snapshots using Median-of-Means...
+Classical Shadows processing complete.
+
+DFE Result: Fidelity = 0.4334 ¡¾ 0.0183
+
+
+Classical Shadows Result: Fidelity = 0.2382
+Reconstructed Statevector (top eigenvector): [-0.42+0.j   -0.01-0.03j  0.07+0.02j  0.03-0.02j  0.06+0.03j  0.09+0.03j
+ -0.05+0.08j -0.12-0.17j  0.01-0.17j -0.01-0.23j  0.05+0.07j  0.06+0.01j
+ -0.07-0.06j -0.07-0.03j  0.09-0.02j -0.06-0.03j  0.05+0.12j  0.04+0.11j
+ -0.01-0.11j -0.11+0.04j -0.12+0.06j -0.02+0.02j -0.03+0.02j  0.13+0.01j
+  0.1 -0.09j  0.02+0.09j  0.03-0.04j  0.01-0.04j  0.06+0.j    0.02-0.14j
+  0.01+0.06j -0.03-0.08j  0.11+0.1j   0.06-0.j    0.09+0.05j  0.01-0.j
+ -0.05+0.02j  0.01-0.03j -0.02-0.05j -0.21+0.1j  -0.06+0.07j  0.11-0.01j
+  0.02+0.04j  0.  -0.14j  0.01+0.j   -0.1 -0.05j  0.1 -0.02j  0.06-0.02j
+  0.  +0.07j -0.01+0.09j -0.18+0.01j  0.02-0.01j -0.16-0.09j  0.04-0.04j
+ -0.02-0.01j  0.03+0.08j -0.05+0.01j -0.13+0.04j -0.04+0.01j -0.  +0.05j
+  0.06+0.1j   0.01-0.05j -0.04-0.03j -0.15+0.39j]
+95% Confidence Interval (Bootstrap): [0.0009, 0.2583]
+
+--- MLE Tomography Warning: Skipping for >4 qubits. ---
+
+==================================================
+            Pipeline Summary
+==================================================
+Target State: 6-qubit GHZ State
+Backend: ibm_brisbane
+--------------------------------------------------
+Direct Fidelity Estimation (DFE):   F = 0.4334 ¡¾ 0.0183
+Classical Shadows + Rank-1 Proj:  F = 0.2382 (95% CI width ~= 0.2574)
+==================================================
